@@ -8,6 +8,7 @@ class BankAccountPage extends StatelessWidget {
     return SafeArea(
       child: Container(
         child: const Text('Bank Account Page '),
+        //add comment
       ),
     );
   }
