@@ -73,122 +73,119 @@ class _HomePageState extends State<HomePage> {
                     vertical: 40,
                     horizontal: 10,
                   ),
-                  child: Expanded(
-                    child: Container(
-                      width: size.width,
-                      height: size.height,
-                      decoration: BoxDecoration(
-                        color: CustomColors.backgroundText,
-                        borderRadius: const BorderRadius.all(
-                          Radius.circular(30),
-                        ),
+                  child: Container(
+                    width: size.width,
+                    height: size.height,
+                    decoration: BoxDecoration(
+                      color: CustomColors.backgroundText,
+                      borderRadius: const BorderRadius.all(
+                        Radius.circular(30),
                       ),
-                      child: Padding(
-                        padding: const EdgeInsets.all(10),
-                        child: Column(
-                          children: [
-                            Padding(
-                              padding:
-                                  const EdgeInsets.only(left: 30, right: 30),
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text(
-                                    'Send Again',
-                                    style: CustomStyle.styleSmallTitle,
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(10),
+                      child: Column(
+                        children: [
+                          Padding(
+                            padding:
+                                const EdgeInsets.only(left: 30, right: 30),
+                            child: Row(
+                              mainAxisAlignment:
+                                  MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                  'Send Again',
+                                  style: CustomStyle.styleSmallTitle,
+                                ),
+                                TextButton(
+                                    onPressed: () {
+                                      debugPrint("see all pressed");
+                                    },
+                                    child: Text(
+                                      'See All',
+                                      style: CustomStyle.styleTextButtonTitle,
+                                    )),
+                              ],
+                            ),
+                          ),
+                          Padding(
+                            padding:
+                                const EdgeInsets.symmetric(horizontal: 20),
+                            child: Row(
+                              mainAxisAlignment:
+                                  MainAxisAlignment.spaceAround,
+                              children: listUser
+                                  .map((e) => Builder(builder: (context) {
+                                        return UserItemWidget(
+                                            name: e.toString(),
+                                            strPathIcon:
+                                                'assets/images/avatar_user.png');
+                                      }))
+                                  .toList(),
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 20,
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(10),
+                            child: Column(
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.only(
+                                      left: 20, right: 10),
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Text(
+                                        'Your Card',
+                                        style: CustomStyle.styleSmallTitle,
+                                      ),
+                                      TextButton(
+                                          onPressed: () {
+                                            // print("see all pressed");
+                                            debugPrint('see all pressed');
+                                          },
+                                          child: Text(
+                                            'Add',
+                                            style: CustomStyle
+                                                .styleTextButtonTitle,
+                                          )),
+                                    ],
                                   ),
-                                  TextButton(
-                                      onPressed: () {
-                                        print("see all pressed");
-                                      },
-                                      child: Text(
-                                        'See All',
-                                        style: CustomStyle.styleTextButtonTitle,
-                                      )),
-                                ],
-                              ),
-                            ),
-                            Padding(
-                              padding:
-                                  const EdgeInsets.symmetric(horizontal: 20),
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceAround,
-                                children: listUser
-                                    .map((e) => Builder(builder: (context) {
-                                          return Container(
-                                            child: UserItemWidget(
-                                                name: e.toString(),
-                                                strPathIcon:
-                                                    'assets/images/avatar_user.png'),
-                                          );
-                                        }))
-                                    .toList(),
-                              ),
-                            ),
-                            const SizedBox(
-                              height: 20,
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.all(10),
-                              child: Column(
-                                children: [
-                                  Padding(
-                                    padding: const EdgeInsets.only(
-                                        left: 20, right: 10),
+                                ),
+                                const CardInfoWidget(),
+                                Padding(
+                                  padding: const EdgeInsets.only(
+                                      top: 30, left: 20, right: 20),
+                                  child: GestureDetector(
+                                    onTap: () {
+                                      Navigator.push(context,
+                                          MaterialPageRoute<Widget>(
+                                              builder: (context) {
+                                        return const TransactionHistoryPage();
+                                      }));
+                                    },
                                     child: Row(
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceBetween,
                                       children: [
                                         Text(
-                                          'Your Card',
+                                          ConstString.strTransactionHistory,
                                           style: CustomStyle.styleSmallTitle,
                                         ),
-                                        TextButton(
-                                            onPressed: () {
-                                              print("see all pressed");
-                                            },
-                                            child: Text(
-                                              'Add',
-                                              style: CustomStyle
-                                                  .styleTextButtonTitle,
-                                            )),
+                                        Image.asset(
+                                          'assets/images/arrow_right.png',
+                                        )
                                       ],
                                     ),
                                   ),
-                                  CardInfoWidget(),
-                                  Padding(
-                                    padding: EdgeInsets.only(
-                                        top: 30, left: 20, right: 20),
-                                    child: GestureDetector(
-                                      onTap: () {
-                                        Navigator.push(context,
-                                            MaterialPageRoute<Widget>(
-                                                builder: (context) {
-                                          return TransactionHistoryPage();
-                                        }));
-                                      },
-                                      child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          Text(
-                                            ConstString.strTransactionHistory,
-                                            style: CustomStyle.styleSmallTitle,
-                                          ),
-                                          Image.asset(
-                                            'assets/images/arrow_right.png',
-                                          )
-                                        ],
-                                      ),
-                                    ),
-                                  )
-                                ],
-                              ),
-                            )
-                          ],
-                        ),
+                                )
+                              ],
+                            ),
+                          )
+                        ],
                       ),
                     ),
                   ),

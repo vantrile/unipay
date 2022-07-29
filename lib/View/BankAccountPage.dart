@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:unipay/Themes/CustomColors.dart';
 
 class BankAccountPage extends StatelessWidget {
   const BankAccountPage({Key? key}) : super(key: key);

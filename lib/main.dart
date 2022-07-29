@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:unipay/Themes/CustomColors.dart';
 import 'package:unipay/Themes/CustomStyle.dart';
 import 'package:unipay/View/HomePage.dart';
+import 'package:unipay/View/MainScreen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: darkTheme,
-      home: const HomePage(), //SplashScreen(),
+      home: const MainScreen(), //SplashScreen(),
     );
   }
 

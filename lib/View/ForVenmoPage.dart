@@ -9,16 +9,17 @@ class ForVenmoPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Container(
-          child: Column(
-        children: const [
-          Transfer_RecentContactWidget(),
-          SizedBox(
-            height: 40,
-          ),
-          Transfer_AllContactWidget(),
-        ],
-      )),
+      child: SingleChildScrollView(
+        child: Column(
+          children: const [
+            Transfer_RecentContactWidget(),
+            Padding(
+              padding: EdgeInsets.only(top: 40),
+              child: Transfer_AllContactWidget(),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }

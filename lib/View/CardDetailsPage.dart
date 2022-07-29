@@ -45,80 +45,83 @@ class CardDetailsPageState extends State<CardDetailsPage> {
         ),
       ),
       body: SafeArea(
-        child: Container(
-          width: size.width,
-          padding: const EdgeInsets.all(10),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Text('Balance',
-                  style: CustomStyle.titleStyle, textAlign: TextAlign.center),
-              Text(
-                'Rp 5.200.000',
-                style: CustomStyle.styleValueTransfer,
-              ),
-              Container(
-                height: size.height / 2,
-                child: SfCartesianChart(
-                  series: <ChartSeries>[
-                    LineSeries<DataPaymentDetails, int>(
-                        dataLabelSettings:
-                            const DataLabelSettings(isVisible: true),
-                        dataSource: charData!,
-                        xValueMapper: (DataPaymentDetails data, index) =>
-                            data.month,
-                        yValueMapper: (DataPaymentDetails data, index) =>
-                            data.payment),
-                  ],
-                  primaryYAxis: NumericAxis(
-                      numberFormat:
-                          NumberFormat.simpleCurrency(decimalDigits: 0)),
+        child: SingleChildScrollView(
+          child: Container(
+            width: size.width,
+            height: size.height,
+            padding: const EdgeInsets.all(10),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Text('Balance',
+                    style: CustomStyle.titleStyle, textAlign: TextAlign.center),
+                Text(
+                  'Rp 5.200.000',
+                  style: CustomStyle.styleValueTransfer,
                 ),
-              ),
-              Container(
-                width: size.width,
-                padding: EdgeInsets.all(10),
-                decoration: BoxDecoration(
-                  color: CustomColors.backgroundText,
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(30),
+                Container(
+                  height: size.height / 2,
+                  child: SfCartesianChart(
+                    series: <ChartSeries>[
+                      LineSeries<DataPaymentDetails, int>(
+                          dataLabelSettings:
+                              const DataLabelSettings(isVisible: true),
+                          dataSource: charData!,
+                          xValueMapper: (DataPaymentDetails data, index) =>
+                              data.month,
+                          yValueMapper: (DataPaymentDetails data, index) =>
+                              data.payment),
+                    ],
+                    primaryYAxis: NumericAxis(
+                        numberFormat:
+                            NumberFormat.simpleCurrency(decimalDigits: 0)),
                   ),
                 ),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: ItemPaymentModel.getListPaymentDetails()
-                      .map((e) => Builder(builder: (context) {
-                            return Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  Padding(
-                                    padding: const EdgeInsets.only(right: 20),
-                                    child: Image.asset(e.iconPath),
-                                  ),
-                                  Expanded(
-                                    flex: 2,
-                                    child: Text(
-                                      e.itemName,
-                                      style: CustomStyle.styleNormalText,
+                Container(
+                  width: size.width,
+                  padding: EdgeInsets.all(10),
+                  decoration: BoxDecoration(
+                    color: CustomColors.backgroundText,
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(30),
+                    ),
+                  ),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: ItemPaymentModel.getListPaymentDetails()
+                        .map((e) => Builder(builder: (context) {
+                              return Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.only(right: 20),
+                                      child: Image.asset(e.iconPath),
                                     ),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.only(right: 10),
-                                    child: Text(e.price,
-                                        textAlign: TextAlign.start),
-                                  ),
-                                ],
-                              ),
-                            );
-                          }))
-                      .toList(),
+                                    Expanded(
+                                      flex: 2,
+                                      child: Text(
+                                        e.itemName,
+                                        style: CustomStyle.styleNormalText,
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.only(right: 10),
+                                      child: Text(e.price,
+                                          textAlign: TextAlign.start),
+                                    ),
+                                  ],
+                                ),
+                              );
+                            }))
+                        .toList(),
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

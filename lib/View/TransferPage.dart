@@ -122,8 +122,15 @@ class _TransferPageState extends State<TransferPage> {
                 ),
               ),
               Container(
-                color: CustomColors.backgroundText,
+
+                decoration: BoxDecoration(
+                  color: CustomColors.backgroundText,
+                  borderRadius: const BorderRadius.all(
+                    Radius.circular(20),
+                  ),
+                ),
                 margin: const EdgeInsets.only(left: 30, right: 30),
+                padding: EdgeInsets.all(10),
                 width: size.width,
                 height: size.height,
                 child: PageView(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:unipay/View/BillDetailsPage.dart';
 
 import '../Model/BillsModel.dart';
 import '../Themes/CustomColors.dart';
@@ -47,9 +48,13 @@ class ListBill_ItemWidget extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.all(5),
+                      padding: const EdgeInsets.only(
+                        left: 7,
+                        bottom: 7,
+                      ),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           SizedBox(
                               height: size.height / 11,
@@ -66,7 +71,6 @@ class ListBill_ItemWidget extends StatelessWidget {
                           Expanded(
                               child: Container(
                             width: size.width * 0.3,
-                            margin: EdgeInsets.all(5),
                             decoration: BoxDecoration(
                               borderRadius:
                                   const BorderRadius.all(Radius.circular(10)),
@@ -78,7 +82,11 @@ class ListBill_ItemWidget extends StatelessWidget {
                                     MainAxisAlignment.spaceAround,
                                 children: [
                                   InkWell(
-                                    onTap: () {},
+                                    onTap: () {
+                                      Navigator.of(context).push(MaterialPageRoute(builder: (context){
+                                        return const BillDetailsPage();
+                                      }));
+                                    },
                                     child: Text(
                                       'Pay Now',
                                       style: CustomStyle.textButtonStyle,
