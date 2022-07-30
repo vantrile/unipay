@@ -13,6 +13,7 @@ import 'package:unipay/View/TransferPage.dart';
 import 'package:unipay/View/VerificationLoadingPage.dart';
 import 'package:unipay/View/VerificationPage.dart';
 import 'package:unipay/View/YourCardPage.dart';
+import 'package:unipay/View/topUpPage.dart';
 
 class ScreenModel {
   String screenName;
@@ -37,15 +38,18 @@ class ScreenModel {
           widgetName: const TransferMoneyPage()),
       ScreenModel(
           screenName: 'Succes Payment', widgetName: const SuccessPaymentPage()),
-      ScreenModel(
-          screenName: 'Login', widgetName: const LoginPage()),
+      ScreenModel(screenName: 'Login', widgetName: const LoginPage()),
       ScreenModel(screenName: 'Sign Up', widgetName: const SignUpPage()),
-      ScreenModel(screenName: 'Transaction History', widgetName: const TransactionHistoryPage()),
+      ScreenModel(
+          screenName: 'Transaction History',
+          widgetName: const TransactionHistoryPage()),
       ScreenModel(screenName: 'Your Card', widgetName: const YourCardPage()),
-      ScreenModel(screenName: 'Your Card - details', widgetName: CardDetailsPage()),
+      ScreenModel(
+          screenName: 'Your Card - details', widgetName: CardDetailsPage()),
       ScreenModel(screenName: 'Bill', widgetName: const BillPage()),
-      ScreenModel(screenName: 'Bill(details)', widgetName: const BillDetailsPage()),
-
+      ScreenModel(
+          screenName: 'Bill(details)', widgetName: const BillDetailsPage()),
+      ScreenModel(screenName: 'Top-up', widgetName: const topUpPage()),
     ];
   }
 }
